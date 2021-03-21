@@ -1,15 +1,15 @@
 package project;
 
 public class Employee extends Id{
-	String name;	//ÀÌ¸§
-	int index=0;	//¹øÈ£
-	String enterDate;	//ÀÔ»çÀÏ
-	String position;	//Á÷Ã¥
-	String duty;	//Á÷¹«
-	int pay;	//±Ş¿©
-	int workDay; //±Ù¹«ÀÏ¼ö
-	int lateDay; //Áö°¢ÀÏ¼ö
-	int absentDay;	//°á±ÙÀÏ¼ö
+	String name;	//ì´ë¦„
+	int index=0;	//ë²ˆí˜¸
+	String enterDate;	//ì…ì‚¬ì¼
+	String position;	//ì§ì±…
+	String duty;	//ì§ë¬´
+	int pay;	//ê¸‰ì—¬
+	int workDay; //ê·¼ë¬´ì¼ìˆ˜
+	int lateDay; //ì§€ê°ì¼ìˆ˜
+	int absentDay;	//ê²°ê·¼ì¼ìˆ˜
 	
 	
 	public String getEnterDate() {

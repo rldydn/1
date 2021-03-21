@@ -5,12 +5,12 @@ import java.util.Scanner;
 public class AdminMode{
 	Scanner sc = new Scanner(System.in);
 	AdminMode(Employee[] emp){
-		System.out.println("1.Á÷¿ø°èÁ¤µî·Ï");
-		System.out.println("2.±ÙÅÂÁ¤º¸Á¶È¸");
-		System.out.println("3.±Þ¿©Á¤º¸Á¶È¸");
-		System.out.println("4.¿äÃ»°ü¸®");
-		System.out.println("5.ÀÎ»ç°ü¸®");
-		System.out.print("ÀÔ·Â > ");
+		System.out.println("1.ì§ì›ê³„ì •ë“±ë¡");
+		System.out.println("2.ê·¼íƒœì •ë³´ì¡°íšŒ");
+		System.out.println("3.ê¸‰ì—¬ì •ë³´ì¡°íšŒ");
+		System.out.println("4.ìš”ì²­ê´€ë¦¬");
+		System.out.println("5.ì¸ì‚¬ê´€ë¦¬");
+		System.out.print("ìž…ë ¥ > ");
 		int sel = sc.nextInt();
 
 		switch(sel) {
@@ -36,19 +36,19 @@ public class AdminMode{
 
 		do {
 			if(emp[i].name == null) {
-				System.out.println("¾ÆÀÌµð ÀÔ·Â");
+				System.out.println("ì•„ì´ë”” ìž…ë ¥");
 				String id = sc.next();
-				System.out.println("ºñ¹Ð¹øÈ£ ÀÔ·Â");
+				System.out.println("ë¹„ë°€ë²ˆí˜¸ ìž…ë ¥");
 				String pwd = sc.next();
-				System.out.println("Á÷¿øÀÌ¸§ ÀÔ·Â");
+				System.out.println("ì§ì›ì´ë¦„ ìž…ë ¥");
 				String name = sc.next();
-				System.out.println("ÀÔ»çÀÏ ÀÔ·Â");
+				System.out.println("ìž…ì‚¬ì¼ ìž…ë ¥");
 				String date = sc.next();
-				System.out.println("Á÷Ã¥ ÀÔ·Â");
+				System.out.println("ì§ì±… ìž…ë ¥");
 				String position = sc.next();
-				System.out.println("Á÷¹« ÀÔ·Â");
+				System.out.println("ì§ë¬´ ìž…ë ¥");
 				String duty = sc.next();
-				System.out.println("½Ã°£ ´ç ±Þ¿© ÀÔ·Â");
+				System.out.println("ì‹œê°„ ë‹¹ ê¸‰ì—¬ ìž…ë ¥");
 				int pay = sc.nextInt();
 				
 				emp[i].setId(id);
@@ -64,8 +64,8 @@ public class AdminMode{
 				i++;
 			}
 		} while (emp[i].name == null);
-		System.out.println("1.¸ÞÀÎÀ¸·Î 2.Ãß°¡ÀÔ·Â");
-		System.out.print("ÀÔ·Â > ");
+		System.out.println("1.ë©”ì¸ìœ¼ë¡œ 2.ì¶”ê°€ìž…ë ¥");
+		System.out.print("ìž…ë ¥ > ");
 		int sel = sc.nextInt();
 		switch(sel) {
 		case 1:
@@ -80,8 +80,8 @@ public class AdminMode{
 	public void output(Employee[] emp) {
 		for(int i=0;i<100;i++) {
 			if(emp[i].getName()==null)break;
-			System.out.println("¹øÈ£ : "+emp[i].getIndex() +"\tÀÌ¸§ : "+emp[i].getName()+"\tÀÔ»çÀÏ : "+
-			emp[i].enterDate+"\tÁ÷Ã¥ : "+emp[i].position +"\tÁ÷¹« : "+emp[i].duty+"\t½Ã°£ ´ç ±Þ¿© : "+emp[i].pay);
+			System.out.println("ë²ˆí˜¸ : "+emp[i].getIndex() +"\tì´ë¦„ : "+emp[i].getName()+"\tìž…ì‚¬ì¼ : "+
+			emp[i].enterDate+"\tì§ì±… : "+emp[i].position +"\tì§ë¬´ : "+emp[i].duty+"\tì‹œê°„ ë‹¹ ê¸‰ì—¬ : "+emp[i].pay);
 		}
 
 	}

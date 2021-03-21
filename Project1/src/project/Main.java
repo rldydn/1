@@ -17,7 +17,7 @@ public class Main {
 		
 		while(mainRun) {
 			System.out.println("-----------");
-			System.out.println("±ÙÅÂ°ü¸® ÇÁ·Î±×·¥");
+			System.out.println("ê·¼íƒœê´€ë¦¬ í”„ë¡œê·¸ëž¨");
 			System.out.print("ID : ");
 			id = sc.next();
 			System.out.print("PASSWORD : ");
