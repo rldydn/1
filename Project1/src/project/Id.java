@@ -3,8 +3,6 @@ package project;
 public class Id {
 	String id;
 	String pwd;
-	boolean isAdmin = false;
-	
 	
 	
 	public String getId() {
@@ -19,10 +17,9 @@ public class Id {
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
 	}
-	Id(String id, String pwd, boolean isAdmin){
+	Id(String id, String pwd){
 		this.id = id;
 		this.pwd = pwd;
-		this.isAdmin = isAdmin;
 	}
 	Id(){
 		

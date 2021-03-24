@@ -9,7 +9,7 @@ public class Main {
 		String id;
 		String pwd;
 		boolean mainRun=true;
-		Id admin = new Id("admin","1111",true);
+		Id admin = new Id("admin","1111");	//관리자 계정
 		Employee[] emp = new Employee[100];
 		for(int i =0;i<emp.length;i++) {
 			emp[i] = new Employee();
@@ -23,7 +23,7 @@ public class Main {
 			System.out.print("PASSWORD : ");
 			pwd = sc.next();
 		
-			if(id.equals(admin.id) && pwd.equals(admin.pwd) && admin.isAdmin) {
+			if(id.equals(admin.id) && pwd.equals(admin.pwd)) {
 				new AdminMode(emp);
 			}
 		

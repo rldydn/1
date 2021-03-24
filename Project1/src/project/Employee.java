@@ -10,8 +10,15 @@ public class Employee extends Id{
 	int workDay; //근무일수
 	int lateDay; //지각일수
 	int absentDay;	//결근일수
+	WorkingDays workingDays = new WorkingDays();
 	
 	
+	public WorkingDays getWorkingDays() {
+		return workingDays;
+	}
+	public void setWorkingDays(WorkingDays workingDays) {
+		this.workingDays = workingDays;
+	}
 	public String getEnterDate() {
 		return enterDate;
 	}
