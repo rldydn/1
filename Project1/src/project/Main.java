@@ -10,7 +10,6 @@ public class Main {
 	static boolean mainRun=true;
 	final static Id admin = new Id("admin","1111");	//관리자 계정
 
-
 	public static void main(String[] args) {
 		Employee[] emp = new Employee[100];	
 		for(int i =0;i<emp.length;i++) {
@@ -22,12 +21,10 @@ public class Main {
 				login(emp);
 			}else {
 				new AdminMode(emp);
-			}
-			
+			}	
 		}
-
-
 	}
+	
 	private static void login(Employee[] emp) {
 		System.out.println("-----------");
 		System.out.println("근태관리 프로그램");
@@ -42,6 +39,7 @@ public class Main {
 		}
 
 	}
+	
 	Main(boolean mainLogin){
 		this.mainLogin = mainLogin;
 	}

@@ -1,5 +1,6 @@
 package project;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class AdminMode{
@@ -7,7 +8,8 @@ public class AdminMode{
 	Employee[] emp=null;
 	AdminMode(Employee[] emp){
 		this.emp=emp;
-		System.out.println("[관리자 모드]");
+		System.out.println();
+		System.out.println("[관리자 모드]\n");
 		System.out.println("1.직원계정등록");
 		System.out.println("2.근태정보조회");
 		System.out.println("3.급여정보조회");
@@ -40,9 +42,11 @@ public class AdminMode{
 
 
 	public void addEmp(Employee[] emp) {
+		System.out.println();
 		int i =0;
-
+		
 		do {
+			try {
 			if(emp[i].name == null) {
 				boolean idCheck = false;
 				String id = "";
@@ -60,6 +64,7 @@ public class AdminMode{
 						idCheck=true;
 					}
 				}
+				
 				System.out.println("비밀번호 입력");
 				String pwd = sc.next();
 				System.out.println("직원이름 입력");
@@ -85,7 +90,18 @@ public class AdminMode{
 			}else {
 				i++;
 			}
+			}catch(InputMismatchException e) {
+				System.out.println("잘못된 입력값이 있습니다. 확인 후 다시 입력해주세요");
+				emp[i].setName(null);
+				emp[i].setId(null);
+				sc.next();
+			}
 		} while (emp[i].name == null);
+		
+		afterAdd();
+	}
+	
+	void afterAdd() {
 		System.out.println("1.메인으로 2.추가입력");
 		System.out.print("입력 > ");
 		int sel = sc.nextInt();
@@ -95,22 +111,28 @@ public class AdminMode{
 		case 2:
 			addEmp(emp);
 		}
-
 	}
 
 
 	public void output(Employee[] emp) {
+		System.out.println();
+		int count=0;
 		for(int i=0;i<100;i++) {
-			if(emp[i].getName()==null)continue;
+			if(emp[i].getName()==null) {continue;}
 			System.out.println("번호 : "+emp[i].getIndex() +"\t이름 : "+emp[i].getName()+
 					"\tID : "+emp[i].id+"\tPASSWORD : "+emp[i].pwd+"\t입사일 : "+
 					emp[i].enterDate+"\t직책 : "+emp[i].position +"\t직무 : "+emp[i].duty+"\t시간 당 급여 : "+emp[i].pay);
-		}	
-
+			count++;
+		}
+		if(count==0) {
+			System.out.println("등록된 내용이 없습니다.");
+		}
+		
 	}
 	
 	private void afterOutput() {
 		System.out.println("1.메인으로 2.수정 3.삭제");
+		System.out.print("입력 > ");
 		int sel = sc.nextInt();
 		
 		switch(sel) {
