@@ -7,11 +7,13 @@ public class AdminMode{
 	Employee[] emp=null;
 	AdminMode(Employee[] emp){
 		this.emp=emp;
+		System.out.println("[관리자 모드]");
 		System.out.println("1.직원계정등록");
 		System.out.println("2.근태정보조회");
 		System.out.println("3.급여정보조회");
 		System.out.println("4.요청관리");
 		System.out.println("5.인사관리");
+		System.out.println("6.로그아웃");
 		System.out.print("입력 > ");
 		int sel = sc.nextInt();
 
@@ -28,6 +30,9 @@ public class AdminMode{
 		case 4:
 			break;
 		case 5:
+			break;
+		case 6:
+			new Main(false);
 			break;
 		default:
 		}
