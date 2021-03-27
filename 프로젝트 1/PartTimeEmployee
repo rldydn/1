@@ -1,0 +1,118 @@
+/**
+ * PartTimeEmployee.java
+ */
+package Projectteam;
+ 
+import java.util.Date;
+ 
+public class PartTimeEmployee {
+ 
+    private String empNum;// 사번
+    private PersonalInfo personalInfo; // 개인정보
+    private String team;// 소속팀
+    private String dept;// 소속부서
+    private long salary;// 급여
+    private int year;// 근속년도
+    private int period;// 계약기간
+    private int endOfDate;// 퇴사일자
+    private String password;// 비밀번호
+ 
+    public PartTimeEmployee() {
+        this(0, "", "", 0, 0, 0, "", "");
+    }
+ 
+    public PartTimeEmployee(int empIndex, String team, String dept, int salary, int year, int period, String endOfDate, String password) {
+        this.empNum = "P" + empIndex;
+        personalInfo = new PersonalInfo();
+        this.team = team;
+        this.dept = dept;
+        this.salary = salary;
+        this.year = year;
+        this.period = period;
+        endOfDate = endOfDate;
+        this.password = password;
+    }
+ 
+    // this.개인정보 set
+    public void setPersonalInfo(String name, int age, String birth, 
+            String address, String tel, String email, String bankName, String account) {
+        personalInfo = new PersonalInfo();
+        personalInfo.setName(name);
+        personalInfo.setAge(age);
+        personalInfo.setBirth(birth);
+        personalInfo.setAddress(address);
+        personalInfo.setTel(tel);
+        personalInfo.setEmail(email);
+        personalInfo.setBankName(bankName);
+        personalInfo.setAccount(account);
+    }
+ 
+    // this.개인정보 return
+    public PersonalInfo getPersonalInfo() {
+        return personalInfo;
+    }
+ 
+    public int getYear() {
+        return year;
+    }
+ 
+    public void setYear(int year) {
+        this.year = year;
+    }
+ 
+    public String getEmpNum() {
+        return empNum;
+    }
+ 
+    public void setEmpNum(int empIndex) {
+        this.empNum = "P" + empIndex;
+    }
+ 
+    public long getSalary() {
+        return salary;
+    }
+ 
+    public void setSalary(long salary) {
+        this.salary = salary;
+    }
+ 
+    public String getPassword() {
+        return password;
+    }
+ 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+ 
+    public String getTeam() {
+        return team;
+    }
+ 
+    public void setTeam(String team) {
+        this.team = team;
+    }
+ 
+    public String getDept() {
+        return dept;
+    }
+ 
+    public void setDept(String dept) {
+        this.dept = dept;
+    }
+ 
+    public int getPeriod() {
+        return period;
+    }
+ 
+    public void setPeriod(int period) {
+        this.period = period;
+    }
+ 
+    public int getEndOfDate() {
+        return endOfDate;
+    }
+ 
+    public void setEndOfDate() {
+        this.endOfDate = this.year + this.period;
+    }
+}
