@@ -1,0 +1,22 @@
+/**
+ * ManagementSystem.java
+ * 해당 인터페이스는 관리클래스를 관리
+ */
+package Projectteam;
+ 
+public interface ManagementSystem {
+ 
+    // 입력
+    public void input();
+    // 수정
+    public void modifi();
+    // 삭제
+    public void delete();
+    // 검색
+    public void search();
+    // 출력
+    public void allOutput();
+    
+}
+ 
+
