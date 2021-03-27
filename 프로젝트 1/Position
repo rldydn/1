@@ -1,0 +1,35 @@
+/**
+ * Position.java
+ */
+package Projectteam;
+ 
+public class Position { 
+    
+    public static String getPosition(int pos) {
+    
+        switch(pos) {
+            case 1: 
+                return "신입사원";
+            case 2: 
+                return "사원";
+            case 3: 
+                return "대리";
+            case 4: 
+                return "과장";
+            case 5: 
+                return "팀장";
+            case 6: 
+                return "차장";
+            case 7: 
+                return "부장";
+            case 8: 
+                return "전무";
+            case 9: 
+                return "이사";
+            case 10: 
+                return "대표이사";
+            default :
+                return "null";
+        }
+    }
+}
