@@ -1,0 +1,104 @@
+package Projectteam;
+
+
+	/**
+	 * PersonalInfo.java
+	 */
+
+	 
+	import java.util.Date;
+	 
+	public class PersonalInfo {
+	 
+	    private String name;// 이름
+	    private int age;// 나이
+	    private String birth;// 생년월일
+	    private String address;// 주소
+	    private String tel;// 연락처
+	    private String email;// email
+	    private String bankName; //은행
+	    private String account;
+	 
+	    public PersonalInfo() {
+	        this("", 0, "", "", "", "", "", "");
+	    }
+	 
+	    public PersonalInfo(String name, int age, String birth, String address, 
+	            String tel, String email, String bankName, String account) {
+	        super();
+	        this.name = name;
+	        this.age = age;
+	        this.birth = birth;
+	        this.address = address;
+	        this.tel = tel;
+	        this.email = email;
+	        this.bankName = bankName;
+	        this.account = account;
+	    }
+	 
+	    public String getName() {
+	        return name;
+	    }
+	 
+	    public void setName(String name) {
+	        this.name = new String(name);
+	    }
+	 
+	    public int getAge() {
+	        return age;
+	    }
+	 
+	    public void setAge(int age) {
+	        this.age = age;
+	    }
+	 
+	    public String getBirth() {
+	        return birth;
+	    }
+	 
+	    public void setBirth(String birth) {
+	        this.birth = new String(birth);
+	    }
+	 
+	    public String getAddress() {
+	        return address;
+	    }
+	 
+	    public void setAddress(String address) {
+	        this.address = new String(address);
+	    }
+	 
+	    public String getTel() {
+	        return tel;
+	    }
+	 
+	    public void setTel(String tel) {
+	        this.tel = tel;
+	    }
+	 
+	    public String getEmail() {
+	        return email;
+	    }
+	 
+	    public void setEmail(String email) {
+	        this.email = new String(email);
+	    }
+	 
+	    public String getBankName() {
+	        return bankName;
+	    }
+	 
+	    public void setBankName(String bankName) {
+	        this.bankName = bankName;
+	    }
+	 
+	    public String getAccount() {
+	        return account;
+	    }
+	 
+	    public void setAccount(String account) {
+	        this.account = account;
+	    }
+	    
+	}
+
