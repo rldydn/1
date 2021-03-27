@@ -1,0 +1,136 @@
+/**
+ * RegularEmployee.java
+ */
+package Projectteam;
+ 
+import java.util.Date;
+ 
+ 
+ 
+//정규직 클래스는 필드와 게터 세터만 존재함
+//사번,개인정보,직책,소속팀,소속부서,급여,근속년도,비밀번호,생성자
+public class RegularEmployee {
+ 
+    // 사번
+    private String empNum;
+    // 개인정보
+    private PersonalInfo pi;
+    // 직책
+    private String position;
+    // 소속팀
+    private String team;
+    // 소속부서
+    private String dept;
+    // 급여(월급)
+    private long salary;
+    // 근속년도
+    private int year;
+    // 비밀번호
+    private String password;
+    
+ 
+    public RegularEmployee() {
+        this("","", "", "", 0, 0, "");        
+    }
+ 
+    public RegularEmployee(String empNum,String position, String team, String dept, long salary, int year, String password)
+    {
+        this.empNum = empNum;
+        pi = new PersonalInfo();
+        this.position =position;
+        this.team=team;
+        this.dept=dept;
+        this.salary=salary;
+        this.year=year;
+        this.password = password;
+    }
+    
+    // 사번
+    public String getEmpNum() {
+        return empNum;
+    }
+ 
+    public void setEmpNum(int index) {
+        this.empNum = new String("R" + index);
+    }
+    
+    //개인정보 입력
+    public void setPersonalInfo(String name, int age, String birth, 
+            String address, String tel, String email, String bankName, String account) {
+        pi = new PersonalInfo();
+        pi.setName(name);
+        pi.setAge(age);
+        pi.setBirth(birth);
+        pi.setAddress(address);
+        pi.setTel(tel);
+        pi.setEmail(email);
+        pi.setBankName(bankName);
+        pi.setAccount(account);
+    }
+    
+    public PersonalInfo getPersonalInfo() {
+        return pi;
+    }
+    
+ 
+    // 직책
+    public String getPosition() {
+        return position;
+    }
+ 
+    public void setPosition() {
+        String s;
+		this.position = new String(s);
+    }
+ 
+    // 소속팀
+    public String getTeam() {
+        return team;
+    }
+ 
+    public void setTeam(String team) {
+        this.team = new String(team);
+    }
+ 
+    // 소속부서
+    public String getDept() {
+        return dept;
+    }
+ 
+    public void setDept(String dept) {
+        this.dept = new String(dept);
+    }
+ 
+    // 급여
+    public long getSalary() {
+        return salary;
+    }
+ 
+    public void setSalary(long salary) {
+        this.salary = salary;
+    }
+ 
+    // 근속년도
+    public int getYear() {
+        return year;
+    }
+ 
+    public void setYear(int year) {
+        //올해 몇년도?
+        //Date date = new Date();
+        int thisYear = 2018;
+        
+        //근속년도 구하기(올해 - 입사년도)
+        this.year = thisYear - year;
+    }
+ 
+    // 비밀번호
+    public String getPassword() {
+        return password;
+    }
+ 
+    public void setPassword(String password) {
+        this.password = new String(password);
+    }
+ 
+}
