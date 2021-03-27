@@ -1,0 +1,61 @@
+package Projectteam;
+
+import java.util.Scanner;
+
+
+
+private Administrator admin;
+
+public MainClass() {
+	this.admin = new Administrator("aa", "1234");
+}
+
+public static void main(String[] args) {
+
+	MainClass mc = new MainClass();
+
+	Scanner sc = new Scanner(System.in);
+
+	char prev = 'y';
+
+	do {
+		boolean pass = false;
+
+		pass = mc.admin.identiAdmin(); // 관리자인지 아닌지 확인
+
+		if (pass) { // 관리자
+			mc.admin.whatAreYouGoing();// 정규직 관리로 갈지 비정규직으로 갈지 확인하는 함수        
+		} else {
+			System.out.println("사용자 모드..");
+			System.out.print("검색하고 싶은 사번을 입력하세요(R_ / P_) : ");
+			String num = sc.next();
+			System.out.print(num + " 직원의 비밀번호를 입력하세요 : ");
+			String password = sc.next();
+
+			if (num.charAt(0) == 'R') { // 정규직
+				if (mc.admin.getRegularManagement() != null)
+					mc.admin.getRegularManagement().userSearch(num, password);
+				else
+					System.out.println("데이터 나타낼 수 없음");
+			} else { // 비정규직
+				if (mc.admin.getPartTimeEmployeeManagementSystem() != null)
+					mc.admin.getPartTimeEmployeeManagementSystem().userSearch(num, password);
+				else
+					System.out.println("데이터 나타낼 수 없음");
+			}                
+		}
+		System.out.println("---------- 페이지  ----------");
+		System.out.println("이 페이지 수행 기능 ");
+		System.out.println("-> 관리자 로그인 페이지");
+		System.out.println("이 페이지 머물기(y) / 프로그램 종료(n): ");
+		prev = sc.next().charAt(0);
+	} while (prev != 'n');
+
+	System.out.println();
+	System.out.println("프로그램 종료");
+
+
+
+
+
+}
