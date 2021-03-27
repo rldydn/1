@@ -1,0 +1,154 @@
+/**
+ * SalaryManagement.java
+ */
+package Projectteam;
+ 
+/*
+ * 기본급, 수당, 세금, 실급여는 각자 계산하여 넣기
+ */
+public class SalaryManagement {
+ 
+    // private String empNum; // 사원(사원번호를 통해 검색)
+    private RegularEmployee regular;
+    private PartTimeEmployee partTime;
+    private char divRP; // 정규직인지 비정규직인지 확인하는 변수
+    private long insentive;// 수당
+    private long tax; // 세금
+    private long basicSalary;// 기본급
+    private long realSalary; // 실급여
+ 
+    public SalaryManagement(RegularEmployee regular) { // 정규직
+        /*
+         * divRP는 급여관리 객체를 만드는 클래스에서 해당 직원 사번의 첫글자 정규직 = R / 비정규직 = P로 판단함
+         */
+ 
+        this.regular = regular;
+        partTime = null;
+        this.divRP = 'R';
+        insentive = tax = basicSalary = realSalary = 0; // 전부 long
+    }
+ 
+    public SalaryManagement(PartTimeEmployee partTime) { // 비정규직
+        /*
+         * divRP는 급여관리 객체를 만드는 클래스에서 해당 직원 사번의 첫글자 정규직 = R / 비정규직 = P로 판단함
+         */
+        regular = null;
+        this.partTime = partTime;
+        this.divRP = 'P';
+        insentive = tax = basicSalary = realSalary = 0;
+    }
+ 
+    public void setDiviRP() {
+        if (regular.getEmpNum().charAt(0) == 'R') { // 입력된 사번이 정규직일경우 사번의 첫번째 글자가 R이므로 해당 if문은 정규직을 위한 if문
+            this.divRP = 'R';
+        } else {// 입력된 사번이 비규직일경우 사번의 첫번째 글자가 P이므로 해당 if문은 비정규직을 위한 if문
+            this.divRP = 'P';
+        }
+    }
+ 
+    public void putOnRecord() { // 해당 직원에 대해 계산할 수 있는 함수 모두 호출
+        setBasciSalary();
+        if (divRP == 'R')
+            setInsentive(); // 비정규직은 수당이 없음
+        setTax();
+        setRealSalary();
+    }
+ 
+    // 기본급 입력
+    public void setBasciSalary() { // 근속년도를 받아와 기본급여 측정
+        // 근속년도에 따라 기본급여 나누기
+        // basicSalary = 근속년도에 따른 기본급여
+ 
+        int man = 10000;
+ 
+        if (divRP == 'P') { // 비정규직이라면..
+            this.basicSalary = 100 * man;
+        } else {
+            // 근속년도에 따라 측정
+            if (this.regular.getYear() == 0 && this.regular.getYear() < 1)
+                this.basicSalary = 150 * man;
+            else if (this.regular.getYear() >= 1 && this.regular.getYear() < 4)
+                this.basicSalary = 200 * man;
+            else if (this.regular.getYear() >= 4 && this.regular.getYear() < 9)
+                this.basicSalary = 300 * man;
+            else if (this.regular.getYear() >= 9 && this.regular.getYear() < 15)
+                this.basicSalary = 400 * man;
+        }
+    }
+ 
+    public long getBasciSalary() {
+        return basicSalary;
+    }
+ 
+    public void setInsentive() { // 직책 받아오기
+        /*
+         * insentive = 직책에 따른 수당 관리 비정규직 : 0% 신입사원 : 15% 사원 : 30% 대리 : 50% 과장 : 70% 팀장 :
+         * 80% 차장 : 90% 부장 : 100% 전무 : 130% 이사 : 150% 회장 : 200%
+         * 
+         * insentive 계산 방법 : 기본급 * 직책에 따른 퍼센트 계산
+         */
+ 
+        // 수당 입력
+ 
+        String pos = this.regular.getPosition();// 직책 받아오기
+        switch (pos) {
+        case "신입사원":
+            this.insentive = (int) (this.basicSalary * 0.15);
+            break;
+        case "사원":
+            this.insentive = (int) (this.basicSalary * 0.3);
+            break;
+        case "대리":
+            this.insentive = (int) (this.basicSalary * 0.5);
+            break;
+        case "과장":
+            this.insentive = (int) (this.basicSalary * 0.7);
+            break;
+        case "팀장":
+            this.insentive = (int) (this.basicSalary * 0.8);
+            break;
+        case "차장":
+            this.insentive = (int) (this.basicSalary * 0.9);
+            break;
+        case "부장":
+            this.insentive = (int) (this.basicSalary * 1);
+            break;
+        case "전무":
+            this.insentive = (int) (this.basicSalary * 1.3);
+            break;
+        case "이사":
+            this.insentive = (int) (this.basicSalary * 1.5);
+            break;
+        case "대표이사":
+            this.insentive = (int) (this.basicSalary * 2);
+            break;
+        default:
+            //System.out.println("잘못된 입력입니다.");
+        }
+    }
+ 
+    public long getInsentive() {
+        return (long)insentive;
+    }
+ 
+    public void setTax() {
+        // 세금 계산방법 : (기본급 + 수당) *15 %
+        // 세금 입력
+        this.tax = (long) ((this.basicSalary + this.insentive) * 0.15);
+    }
+ 
+    public long getTax() {
+        return this.tax;
+    }
+ 
+    public long getRealSalary() {
+        return this.realSalary;
+    }
+ 
+    public void setRealSalary() {
+        // 실급여 계산방법 = 기본급 + 수당 - 세금
+        // 실급여 입력
+        this.realSalary = this.basicSalary + this.insentive - this.tax;
+    }
+ 
+}
